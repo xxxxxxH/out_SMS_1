@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BasicModel</string>
+    <string name="select">Select a phone number</string>
+    <string name="loading_txt1">Welcome to the</string>
+    <string name="loading_txt2">SMS Recieve</string>
+</resources>
