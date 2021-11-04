@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import net.basicmodel.R
 
 /**
@@ -33,7 +34,7 @@ class RadioButtonManager {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables", "ResourceAsColor")
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(Build.VERSION_CODES.M)
     fun createRadioButton(context: Context, content: String): RadioButton {
         val rb = RadioButton(context)
         rb.let {
@@ -47,7 +48,7 @@ class RadioButtonManager {
             it.textSize = 12f
             it.buttonDrawable = null
             it.background = context.getDrawable(R.drawable.country_rb_selector)
-            it.setTextColor(R.color.rb_textcolor)
+            it.setTextColor(ContextCompat.getColorStateList(context, R.color.rb_textcolor))
         }
         return rb
     }

@@ -41,6 +41,7 @@ class LoadingActivity : AppCompatActivity() {
         val i = Intent(this,SelectNumberActivity::class.java)
         i.putExtra(Constant.country_data,data)
         startActivity(i)
+        finish()
     }
 
     override fun onDestroy() {

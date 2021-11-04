@@ -1,7 +1,7 @@
 package net.basicmodel.utils
 
-import android.util.Log
 import net.basicmodel.entity.CountryEntity
+import net.basicmodel.entity.NumberEntity
 import net.basicmodel.event.MessageEvent
 import net.http.RequestService
 import net.http.RetrofitUtils
@@ -40,11 +40,31 @@ class RequestManager {
                     call: Call<ArrayList<CountryEntity>>,
                     response: Response<ArrayList<CountryEntity>>
                 ) {
-                    EventBus.getDefault().post(MessageEvent(Constant.country_success,response.body()))
+                    EventBus.getDefault()
+                        .post(MessageEvent(Constant.country_success, response.body()))
                 }
 
                 override fun onFailure(call: Call<ArrayList<CountryEntity>>, t: Throwable) {
                     EventBus.getDefault().post(MessageEvent(Constant.country_success))
+                }
+
+            })
+    }
+
+    fun getAllNumbers() {
+        RetrofitUtils.get().retrofit().create(RequestService::class.java).getAllNumbers()
+            .enqueue(object : Callback<ArrayList<NumberEntity>> {
+                override fun onResponse(
+                    call: Call<ArrayList<NumberEntity>>,
+                    response: Response<ArrayList<NumberEntity>>
+                ) {
+                    EventBus.getDefault()
+                        .post(MessageEvent(Constant.all_num_success, response.body()))
+                }
+
+                override fun onFailure(call: Call<ArrayList<NumberEntity>>, t: Throwable) {
+                    EventBus.getDefault()
+                        .post(MessageEvent(Constant.all_num_failed))
                 }
 
             })
