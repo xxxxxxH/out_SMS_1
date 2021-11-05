@@ -41,7 +41,7 @@ class RadioButtonManager {
         rb.let {
             val p = RadioGroup.LayoutParams(
                 RadioGroup.LayoutParams.MATCH_PARENT,
-                ResourceManager.get().dip2px(context, 40f)
+                ResourceManager.get().dip2px(context, 50f)
             )
             it.layoutParams = p
             it.gravity = Gravity.CENTER

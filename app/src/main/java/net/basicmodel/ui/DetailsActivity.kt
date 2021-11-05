@@ -64,6 +64,7 @@ class DetailsActivity : BaseActivity(), OnItemClickListener {
         entity = i.getSerializableExtra(Constant.country_data) as NumberEntity
         entity?.let {
             titleMiddle.text = "${this.getString(R.string.details)} ${it.number}"
+            detailsNum.text = it.number
             titleLeft.setImageResource(R.mipmap.back)
             titleLeft.setOnClickListener {
                 finish()
