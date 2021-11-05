@@ -3,6 +3,7 @@ package net.basicmodel.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import net.basicmodel.R
 import net.basicmodel.entity.CountryEntity
 import net.basicmodel.event.MessageEvent
@@ -29,12 +30,14 @@ class LoadingActivity : AppCompatActivity() {
         when(msg[0]){
             Constant.country_success -> {
                 country = msg[1] as ArrayList<CountryEntity>
+                next(country)
             }
             Constant.country_failed -> {
                 country = null
+                next(country)
             }
         }
-        next(country)
+
     }
 
     fun next(data:ArrayList<CountryEntity>?){
@@ -47,5 +50,17 @@ class LoadingActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         EventBus.getDefault().unregister(this)
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    or View.SYSTEM_UI_FLAG_FULLSCREEN
+                    or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
+        }
     }
 }

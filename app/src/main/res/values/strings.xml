@@ -6,4 +6,10 @@
     <string name="all">All</string>
     <string name="open">open</string>
     <string name="empty">No Data</string>
+    <string name="details">Messages For</string>
+    <string name="refresh">Refresh page</string>
+    <string name="time">Time：</string>
+    <string name="from">From：</string>
+    <string name="msg">Message：</string>
+    <string name="wait">Please wait</string>
 </resources>

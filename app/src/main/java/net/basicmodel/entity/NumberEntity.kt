@@ -9,4 +9,5 @@ data class NumberEntity(
     var numberFull:String="",
     var countryName:String="",
     var imageUrl:String="",
+    var isChecked:Boolean
 ):Serializable

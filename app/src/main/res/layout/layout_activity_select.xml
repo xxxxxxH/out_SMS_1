@@ -21,9 +21,11 @@
 
             <RadioGroup
                 android:id="@+id/countryRg"
-                android:layout_width="80dp"
+                android:layout_width="88dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical" />
+                android:orientation="vertical" >
+
+            </RadioGroup>
         </RelativeLayout>
 
 

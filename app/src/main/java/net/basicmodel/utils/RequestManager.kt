@@ -1,10 +1,12 @@
 package net.basicmodel.utils
 
 import net.basicmodel.entity.CountryEntity
+import net.basicmodel.entity.MsgRecordEntity
 import net.basicmodel.entity.NumberEntity
 import net.basicmodel.event.MessageEvent
 import net.http.RequestService
 import net.http.RetrofitUtils
+import okhttp3.ResponseBody
 import org.greenrobot.eventbus.EventBus
 import retrofit2.Call
 import retrofit2.Callback
@@ -65,6 +67,23 @@ class RequestManager {
                 override fun onFailure(call: Call<ArrayList<NumberEntity>>, t: Throwable) {
                     EventBus.getDefault()
                         .post(MessageEvent(Constant.all_num_failed))
+                }
+
+            })
+    }
+
+    fun getMsgRecord(number:String){
+        RetrofitUtils.get().retrofit().create(RequestService::class.java).getMsgRecord(number)
+            .enqueue(object :Callback<MsgRecordEntity>{
+                override fun onResponse(
+                    call: Call<MsgRecordEntity>,
+                    response: Response<MsgRecordEntity>
+                ) {
+                    EventBus.getDefault().post(MessageEvent(Constant.msg_record_success,response.body()))
+                }
+
+                override fun onFailure(call: Call<MsgRecordEntity>, t: Throwable) {
+                    EventBus.getDefault().post(MessageEvent(Constant.msg_record_failed))
                 }
 
             })

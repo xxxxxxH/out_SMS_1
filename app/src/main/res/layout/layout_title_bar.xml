@@ -9,21 +9,17 @@
         android:id="@+id/titleLeft"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:scaleType="center"
         android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/titleMiddle"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:layout_width="0dp"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:textStyle="bold"
         android:layout_height="match_parent"/>
 
-    <ImageView
-        android:id="@+id/titleRight"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
 </LinearLayout>

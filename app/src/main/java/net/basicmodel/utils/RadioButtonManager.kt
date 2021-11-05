@@ -3,6 +3,7 @@ package net.basicmodel.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
+import android.text.TextUtils
 import android.view.Gravity
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -39,7 +40,7 @@ class RadioButtonManager {
         val rb = RadioButton(context)
         rb.let {
             val p = RadioGroup.LayoutParams(
-                ResourceManager.get().dip2px(context, 80f),
+                RadioGroup.LayoutParams.MATCH_PARENT,
                 ResourceManager.get().dip2px(context, 40f)
             )
             it.layoutParams = p
@@ -47,6 +48,14 @@ class RadioButtonManager {
             it.text = content
             it.textSize = 12f
             it.buttonDrawable = null
+            it.maxLines = 2
+            it.ellipsize = TextUtils.TruncateAt.END
+            it.setPadding(
+                ResourceManager.get().dip2px(context, 4f),
+                0,
+                ResourceManager.get().dip2px(context, 4f),
+                0
+            )
             it.background = context.getDrawable(R.drawable.country_rb_selector)
             it.setTextColor(ContextCompat.getColorStateList(context, R.color.rb_textcolor))
         }
