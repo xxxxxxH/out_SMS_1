@@ -14,6 +14,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import net.basicmodel.R
 import net.basicmodel.entity.NumberEntity
+import net.basicmodel.utils.RexUtils
 import net.basicmodel.utils.ScreenUtils
 
 class NumberAdapter(val activity: Activity, layoutResId: Int, data: ArrayList<NumberEntity>) :

@@ -1,11 +1,13 @@
 package net.basicmodel.adapter
 
+import android.util.Log
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
+import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import net.basicmodel.R
 import net.basicmodel.entity.RecordItemEntity
+import net.basicmodel.utils.RexUtils
 
 /**
  * Copyright (C) 2021,2021/11/5, a Tencent company. All rights reserved.
@@ -25,6 +27,8 @@ class MsgRecordAdapter(layoutResId: Int, data: ArrayList<RecordItemEntity>?) :
         )
         holder.setText(R.id.timeStr, item.relativeTime)
             .setText(R.id.fromStr, item.smsFrom.trim())
-            .setText(R.id.msgStr, item.content)
+        val contentView = holder.getView<TextView>(R.id.msgStr)
+        val code = RexUtils.get().getVerCode(item.content)
+        RexUtils.get().setTextColor(item.content,code,contentView)
     }
 }
