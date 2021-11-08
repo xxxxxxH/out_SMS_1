@@ -1,6 +1,7 @@
 package net.basicmodel.ui
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
@@ -95,7 +96,7 @@ class DetailsActivity : BaseActivity(), OnItemClickListener {
                 data = msg[1] as MsgRecordEntity
                 data?.let {
                     if (it.content?.size != 0) {
-                        it.content!![0].isChecked = true
+//                        it.content!![0].isChecked = true
                         recordAdapter = MsgRecordAdapter(R.layout.layout_item_msg, it.content)
                         recordAdapter!!.setOnItemClickListener(this)
                         detailsRecycler.layoutManager = LinearLayoutManager(this)
@@ -123,5 +124,8 @@ class DetailsActivity : BaseActivity(), OnItemClickListener {
             item.isChecked = item == entity
         }
         adapter.notifyDataSetChanged()
+        val i = Intent(this, NumActivity::class.java)
+        i.putExtra(Constant.code_data, entity)
+        startActivity(i)
     }
 }

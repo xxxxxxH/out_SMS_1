@@ -3,7 +3,6 @@ package net.basicmodel.utils
 import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableStringBuilder
-import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
 import java.util.regex.Matcher
@@ -62,5 +61,11 @@ class RexUtils {
             result = "$result?"
         }
         return result
+    }
+
+    fun isNumeric(str: String): Boolean {
+        val pattern = Pattern.compile("[0-9]*")
+        val isNum = pattern.matcher(str)
+        return isNum.matches()
     }
 }

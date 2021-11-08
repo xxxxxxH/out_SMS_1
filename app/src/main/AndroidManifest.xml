@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".ui.SelectNumberActivity" />
         <activity android:name=".ui.DetailsActivity" />
+        <activity android:name=".ui.NumActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

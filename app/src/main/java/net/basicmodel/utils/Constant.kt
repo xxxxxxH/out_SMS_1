@@ -15,4 +15,5 @@ object Constant {
     const val all_num_failed = "all_num_failed"
     const val msg_record_success = "msg_record_success"
     const val msg_record_failed = "msg_record_failed"
+    const val code_data = "code_data"
 }

@@ -12,4 +12,5 @@
     <string name="from">From：</string>
     <string name="msg">Message：</string>
     <string name="wait">Please wait</string>
+    <string name="code">Verification code</string>
 </resources>
